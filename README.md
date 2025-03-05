@@ -1,1 +1,1 @@
-# studies
+# Big Data по вторникам (Farpost)

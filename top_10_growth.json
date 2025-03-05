@@ -1,0 +1,82 @@
+[
+    {
+        "name": "3M Co.",
+        "code": "Stock , MMM",
+        "price": 13017.246528,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "A.O. Smith Corp.",
+        "code": "Stock , AOS",
+        "price": 5856.243776,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Abbott Laboratories",
+        "code": "Stock , ABT",
+        "price": 12275.62224,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "AbbVie Inc",
+        "code": "Stock , ABBV",
+        "price": 18539.714752,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Accenture plc",
+        "code": "Stock , ACN",
+        "price": 30857.282048,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Adobe Inc.",
+        "code": "Stock , ADBE",
+        "price": 39816.56752,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "AES Corp.",
+        "code": "Stock , AES",
+        "price": 965.628736,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Aflac Inc",
+        "code": "Stock , AFL",
+        "price": 9600.955584,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Agilent Technologies Inc.",
+        "code": "Stock , A",
+        "price": 10986.03488,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Air Products and Chemicals Inc.",
+        "code": "Stock , APD",
+        "price": 27249.114784,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    }
+]

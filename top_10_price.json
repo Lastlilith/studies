@@ -1,0 +1,82 @@
+[
+    {
+        "name": "Ameriprise Financial Inc",
+        "code": "Stock , AMP",
+        "price": 44454.619776,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Adobe Inc.",
+        "code": "Stock , ADBE",
+        "price": 39816.56752,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Aon PLC Registered Shs",
+        "code": "Stock , AON",
+        "price": 36093.274464,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Accenture plc",
+        "code": "Stock , ACN",
+        "price": 30857.282048,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Arthur J. Gallagher & Co.",
+        "code": "Stock , AJG",
+        "price": 30081.744736,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "ANSYS Inc.",
+        "code": "Stock , ANSS",
+        "price": 28884.971968,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Amgen Inc.",
+        "code": "Stock , AMGN",
+        "price": 27863.119008,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Air Products and Chemicals Inc.",
+        "code": "Stock , APD",
+        "price": 27249.114784,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "American Express Co.",
+        "code": "Stock , AXP",
+        "price": 25298.223456,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    },
+    {
+        "name": "Autodesk Inc.",
+        "code": "Stock , ADSK",
+        "price": 23863.167072,
+        "P/E": 0.0,
+        "potential_profit": 0.0,
+        "growth": 0
+    }
+]

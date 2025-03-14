@@ -57,7 +57,7 @@ def get_most_common_non_ascii_char(text: str) -> Tuple[str, int]:
             char_counts[ch] = char_counts.get(ch, 0) + 1
 
     if not char_counts:
-        return "No non-ASCII characters found", 0
+        return "Non-ASCII не найдены", 0
 
     max_char = max(char_counts, key=char_counts.get)
     return max_char, char_counts[max_char]

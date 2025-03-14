@@ -11,7 +11,7 @@ class TableData(Collection):
         """Инициализация с проверкой существования файла БД"""
         if not os.path.exists(database_name):
             raise FileNotFoundError(
-                f"Database file '{database_name}' not found.")
+                f"DB file '{database_name}' not found")
         self.database_name = database_name
         self.table_name = table_name
 
@@ -31,7 +31,7 @@ class TableData(Collection):
         row = self._execute_query(
             f"SELECT * FROM {self.table_name} WHERE name = :name", {"name": name}).fetchone()
         if row is None:
-            raise KeyError(f"No entry found for name: {name}")
+            raise KeyError(f"No entry found for: {name}")
         return row
 
     def __contains__(self, name: str) -> bool:

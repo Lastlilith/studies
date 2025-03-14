@@ -21,10 +21,3 @@ def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
             max_sum = max(max_sum, sum(nums[i : j + 1]))
 
     return max_sum
-
-
-def test_black():
-    black = {
-        "sifuhsieoufghoseirjgosrituhgoiuh": "sdofigjnsiojgnsdoifjgnsoigjnrioghg"
-    }
-    print("hello")

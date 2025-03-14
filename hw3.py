@@ -19,6 +19,7 @@ Example:
      Return value should be "x wins!"
 
 """
+
 from typing import List
 
 
@@ -41,16 +42,8 @@ def tic_tac_toe(board: List[List[str]]) -> str:
     return "draw!"
 
 
-board1 = [
-    ["-", "-", "o"],
-    ["-", "x", "o"],
-    ["x", "o", "x"]
-]
+board1 = [["-", "-", "o"], ["-", "x", "o"], ["x", "o", "x"]]
 print("1:", tic_tac_toe(board1))
 
-board2 = [
-    ["-", "-", "o"],
-    ["-", "o", "o"],
-    ["x", "x", "x"]
-]
+board2 = [["-", "-", "o"], ["-", "o", "o"], ["x", "x", "x"]]
 print("2:", tic_tac_toe(board2))

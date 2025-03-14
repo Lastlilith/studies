@@ -6,80 +6,74 @@ Given a file containing text. Complete using only default collections:
     4) Count every non ascii char
     5) Find most common non ascii char for document
 """
-from typing import List
+import string
+import unicodedata
+from typing import List, Tuple
 
 
-def get_longest_diverse_words(file_path: str) -> List[str]:
+def read_and_decode_file(file_path: str) -> str:
+    """Читает файл и декодирует Unicode escape последовательности"""
+    with open(file_path, "r", encoding="utf-8") as f:
+        raw_text = f.read()
+    return raw_text.encode().decode("unicode_escape")
+
+
+def get_longest_diverse_words(text: str) -> List[str]:
     """Находит 10 самых длинных слов с наибольшим количеством уникальных символов"""
-    words = []
-    with open(file_path, encoding='utf-8') as file:
-        for line in file:
-            words.extend(line.split())
+    words = text.split()
+    clean_words = [word.strip(string.punctuation) for word in words if word]
 
-    def unique_chars_count(word):
+    def key_func(word):
         return len(set(word)), len(word)
 
-    words.sort(key=lambda w: (-unique_chars_count(w)
-               [0], -unique_chars_count(w)[1]))
-    return words[:10]
+    sorted_words = sorted(clean_words, key=key_func, reverse=True)
+    return sorted_words[:10]
 
 
-def get_rarest_char(file_path: str) -> str:
+def get_rarest_char(text: str) -> str:
     """Находит самый редкий символ в файле"""
-    with open(file_path, encoding='utf-8') as file:
-        text = file.read()
-
     char_counts = {}
-    for char in text:
-        char_counts[char] = char_counts.get(char, 0) + 1
+    for ch in text:
+        char_counts[ch] = char_counts.get(ch, 0) + 1
 
-    min_char = None
-    min_count = float('inf')
-    for char, count in char_counts.items():
-        if count < min_count:
-            min_count = count
-            min_char = char
-
-    return min_char
+    return min(char_counts, key=char_counts.get)
 
 
-def count_punctuation_chars(file_path: str) -> int:
+def count_punctuation_chars(text: str) -> int:
     """Подсчитывает количество знаков препинания в файле"""
-    punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
-    count = 0
-    with open(file_path, encoding='utf-8') as file:
-        for line in file:
-            for char in line:
-                if char in punctuation:
-                    count += 1
-    return count
+    return sum(1 for ch in text if ch in string.punctuation)
 
 
-def count_non_ascii_chars(file_path: str) -> int:
+def count_non_ascii_chars(text: str) -> int:
     """Подсчитывает количество не-ASCII символов в файле"""
-    count = 0
-    with open(file_path, encoding='utf-8') as file:
-        for line in file:
-            for char in line:
-                if ord(char) > 127:
-                    count += 1
-    return count
+    return sum(1 for ch in text if ord(ch) > 127)
 
 
-def get_most_common_non_ascii_char(file_path: str) -> str:
+def get_most_common_non_ascii_char(text: str) -> Tuple[str, int]:
     """Находит самый частый не-ASCII символ в файле"""
     char_counts = {}
-    with open(file_path, encoding='utf-8') as file:
-        for line in file:
-            for char in line:
-                if ord(char) > 127:
-                    char_counts[char] = char_counts.get(char, 0) + 1
+    for ch in text:
+        if ord(ch) > 127:
+            char_counts[ch] = char_counts.get(ch, 0) + 1
 
-    max_char = None
-    max_count = 0
-    for char, count in char_counts.items():
-        if count > max_count:
-            max_count = count
-            max_char = char
+    if not char_counts:
+        return "No non-ASCII characters found", 0
 
-    return max_char
+    max_char = max(char_counts, key=char_counts.get)
+    return max_char, char_counts[max_char]
+
+
+# Доказательство работоспособности
+file_path = "data.txt"
+decoded_text = read_and_decode_file(file_path)
+
+test_res = {
+    "Longest": ", ".join(get_longest_diverse_words(decoded_text)),
+    "Rarest symbol": get_rarest_char(decoded_text),
+    "Punctuation сount": str(count_punctuation_chars(decoded_text)),
+    "Non-ASCII char сount": str(count_non_ascii_chars(decoded_text)),
+    "Most сommon Non-ASCII char": str(get_most_common_non_ascii_char(decoded_text)),
+}
+
+for key, value in test_res.items():
+    print(f"{key}: {value}")

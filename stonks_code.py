@@ -23,7 +23,7 @@ async def get_usd_to_rub(session) -> Decimal:
     usd_rate = soup.find("Valute", {"ID": "R01235"}).Value.text.replace(
         ",", "."
     )
-    print(f"📊 Текущий курс USD к RUB: {usd_rate}")
+    print(f"Текущий курс USD к RUB: {usd_rate}")
     return Decimal(usd_rate)
 
 
@@ -44,7 +44,7 @@ async def parse_company_page(
 
     name_code_section = soup.find("h1", class_="price-section__identifiers")
     if not name_code_section:
-        print(f"❗ Не найден блок с названием и кодом компании: {url}")
+        print(f"Не найден блок с названием и кодом компании: {url}")
         return {}
 
     name = name_code_section.find(
@@ -80,10 +80,10 @@ async def parse_company_page(
             else 0
         )
     except AttributeError:
-        print(f"⚠️ Неполные данные о 52 Week Low/High для {name} ({code})")
+        print(f"Неполные данные о 52 Week Low/High для {name} ({code})")
         potential_profit = 0
 
-    print(f"✅ {name} ({code}) успешно обработана")
+    print(f"{name} ({code}) успешно обработана")
     return {
         "name": name,
         "code": code,
@@ -107,7 +107,7 @@ async def parse_sp500():
             table_rows = soup.select(
                 "div.table-responsive table.table tbody tr"
             )
-            print(f"📊 Страница {page}: найдено {len(table_rows)} компаний")
+            print(f" Страница {page}: найдено {len(table_rows)} компаний")
 
             for row in table_rows:
                 cols = row.find_all("td")
@@ -115,7 +115,7 @@ async def parse_sp500():
                     continue  # Пропуск пустых строк
 
                 company_link = BASE_URL + cols[0].find("a")["href"]
-                print(f"🌐 Обработка компании: {company_link}")
+                print(f"Обработка компании: {company_link}")
 
                 year_growth_text = (
                     cols[-1]
@@ -128,7 +128,7 @@ async def parse_sp500():
                     year_growth = float(year_growth_text)
                 except ValueError:
                     print(
-                        f"⚠️ Ошибка чтения роста компании: '{year_growth_text}'"
+                        f"Ошибка чтения роста компании: '{year_growth_text}'"
                     )
                     year_growth = 0
 
@@ -139,13 +139,13 @@ async def parse_sp500():
                     company_data["growth"] = year_growth
                     companies.append(company_data)
 
-        print(f"✅ Всего компаний собрано: {len(companies)}")
+        print(f"Всего компаний собрано: {len(companies)}")
         await save_top_10(companies)
 
 
 def save_json(filename: str, data: List[Dict[str, Any]]):
     """Сохраняет JSON-файл."""
-    print(f"💾 Сохранение {len(data)} записей в файл: {filename}")
+    print(f"Сохранение {len(data)} записей в файл: {filename}")
     with open(filename, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
 
@@ -168,4 +168,4 @@ async def save_top_10(companies: List[Dict[str, Any]]):
 
 if __name__ == "__main__":
     asyncio.run(parse_sp500())
-    print("🎉 Все данные успешно собраны и сохранены.")
+    print("Все данные успешно собраны и сохранены.")
